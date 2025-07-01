@@ -32,7 +32,7 @@ def add_user():
     """When the user submits the “add user” form, a POST request is made.
     The server receives the new user info,
     adds it to the database, then redirects back to /"""
-    name = request.form.get('name')
+    name = request.values.get('name')
     data_manager.create_user(name)
 
 
