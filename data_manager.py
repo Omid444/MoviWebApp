@@ -16,7 +16,7 @@ class DataManager():
 
     def get_movies(self, user_id):
         """Return a list of all movies of a specific user"""
-        return User.query.filter(User.id == user_id)
+        return Movie.query.join(User).filter(User.id == user_id).all()
 
 
     def add_movie(self, movie):
