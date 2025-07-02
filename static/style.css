@@ -1,0 +1,109 @@
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f5f7fa;
+    color: #333;
+    line-height: 1.6;
+}
+
+
+h1 {
+    text-align: center;
+    color: #2c3e50;
+    margin-top: 30px;
+}
+
+
+ul.user-list,
+ul.user-movie-list {
+    list-style: none;
+    padding: 0;
+    margin: 30px auto;
+    max-width: 600px;
+}
+
+li.user-entry,
+li.user-movie {
+    background-color: #ffffff;
+    margin-bottom: 15px;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.06);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+
+button,
+input[type="submit"],
+.btn {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 10px 14px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+}
+
+button:hover,
+input[type="submit"]:hover,
+.btn:hover {
+    background-color: #2980b9;
+    transform: scale(1.05);
+}
+
+.delete-btn {
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    padding: 10px 16px;
+    border-radius: 8px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.delete-btn:hover {
+    background-color: #c0392b;
+    transform: scale(1.05);
+}
+
+.delete-btn:active {
+    background-color: #a93226;
+    transform: scale(0.98);
+}
+form {
+    margin-top: 20px;
+    text-align: center;
+}
+
+form input[type="text"],
+form input[name="title"],
+form input[name="username"],
+form input[name="new_title"],
+form input[type="submit"] {
+    padding: 10px;
+    margin: 5px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+}
+
+.movie-poster {
+    width: 100px;
+    height: auto;
+    border-radius: 6px;
+    margin-right: 20px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.user-movie form {
+    display: inline-block;
+    margin-top: 10px;
+}
