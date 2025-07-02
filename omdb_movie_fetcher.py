@@ -1,5 +1,4 @@
 from dotenv import load_dotenv
-from models import Movie
 import os
 import requests
 
@@ -24,9 +23,8 @@ def fetch_data(movie_title):
                     year = int(movie['Year'])
                     poster = movie['Poster']
 
-                    new_movie = Movie(title=title, director=director,year=year, poster_url=poster)
+                    return title, director, year, poster
 
-                    return new_movie
                 except Exception as e:
                     print("Error movie was not found:", response.status_code, e)
         else:

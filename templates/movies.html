@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Movie for{{user.name}}</h1>
+<ul class="user-movie-list">
+    {%for movie in user_movies%}
+    <li class="user-movie">
+    <img class="movie-poster" src="{{movie.poster_url}}">
+    <a href="{{ url_for('update_movie',user_id = user.id, new_title = new_title) }}" class="btn">Update</a>
+        <button onclick="location.href='{ url_for('update_movie',user_id = user.id, new_title = new_title)}}'">Update</button>
+    </li>
+    {%endfor%}
+</ul>
+<form action="{{url_for('add_movie', user_id=user.id)}}" method="post">
+<input name="title" placeholder="Enter movie title">
+<input type="submit" value="Add Movie">
+</form>
+{% endblock %}
