@@ -14,8 +14,13 @@
     </li>
     {%endfor%}
 </ul>
-<form action="{{url_for('add_movie', user_id=user.id)}}" method="post">
-<input name="title" placeholder="Enter movie title">
-<input type="submit" value="Add Movie">
+<div>
+    <form action="{{url_for('add_movie', user_id=user.id)}}" method="post">
+    <input name="title" placeholder="Enter movie title">
+    <input type="submit" value="Add Movie">
 </form>
+</div>
+<div style="text-align: center; margin-top: 50px;">
+    <a href="{{ url_for('home') }}" class="btn">Back to Homepage</a>
+</div>
 {% endblock %}

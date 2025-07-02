@@ -51,7 +51,7 @@ def display_user_movies(user_id):
 def add_movie(user_id):
     """Add a new movie to a user’s list of favorite movies"""
     movie_title = request.form.get('title')
-    title, director, year, poster = fetch_data(movie_title)
+    title, director, year, poster = fetch_data(movie_title.lower())
     new_movie = Movie(title=title, director=director, year=year, poster_url=poster, user_id=user_id)
     data_manager.add_movie(new_movie)
     return redirect(url_for('add_movie', user_id=user_id))
