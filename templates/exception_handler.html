@@ -1,8 +1,8 @@
 {% extends "base.html" %}
 {% block content %}
-<div>
+<div style="text-align: center; margin-top: 50px;">
     <h1>Error occurred</h1>
-    <h3>{{message_error}}</h3>
+    <h3 style="color:red">{{message_error}}</h3>
     <a href="{{ url_for('home') }}" class="btn" >Back to Hompage</a>
 </div>
 {% endblock %}

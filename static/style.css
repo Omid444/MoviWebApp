@@ -1,4 +1,21 @@
+.title {
+    background: linear-gradient(135deg, #74ebd5, #ACB6E5); /* گرادیان آبی-بنفش */
+    color: #2c3e50;
+    padding: 20px 30px;
+    border-radius: 12px;
+    text-align: center;
+    font-size: 2.2rem;
+    font-weight: bold;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    margin: 40px auto 20px auto;
+    width: fit-content;
+    max-width: 90%;
+    transition: transform 0.3s ease;
+}
 
+.title:hover {
+    transform: scale(1.03);
+}
 body {
     margin: 0;
     padding: 0;

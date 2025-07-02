@@ -19,8 +19,19 @@ class DataManager():
 
     def add_movie(self, movie):
         """Add a new movie to a user’s favorites"""
-        db.session.add(movie)
-        db.session.commit()
+        if not self.is_duplicated_movie(movie):
+            db.session.add(movie)
+            db.session.commit()
+        else:
+            raise Exception(f'{movie.title} already exist in DB')
+
+    def is_duplicated_movie(self, movie):
+        """Check if movie already exist"""
+        movie = Movie.query.filter_by(director=movie.director, year=movie.year, user_id=movie.user_id).first()
+        return movie is not None
+
+
+
 
     def update_movie(self, movie_id, user_id, new_title):
         """Update the details of a specific movie in the database"""

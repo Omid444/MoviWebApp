@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
-<h1>Movies for {{user.name}}</h1>
+<h1 class="title">Movies for {{user.name}}</h1>
 <ul class="user-movie-list">
     {%for movie in user_movies%}
     <li class="user-movie"><img class="movie-poster" src="{{movie.poster_url}}">
