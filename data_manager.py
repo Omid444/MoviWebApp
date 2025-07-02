@@ -24,13 +24,13 @@ class DataManager():
 
     def update_movie(self, movie_id, user_id, new_title):
         """Update the details of a specific movie in the database"""
-        movie_to_update = Movie.query.filter(Movie.id == movie_id, user_id == user_id).first()
+        movie_to_update = Movie.query.filter(Movie.id == movie_id).first()
         movie_to_update.title = new_title
         db.session.commit()
 
     def delete_movie(self, user_id, movie_id):
         """Delete the movie from the user’s list of favorites"""
-        movie_to_delete = Movie.query.filter(movie_id == movie_id and user_id==user_id).first()
+        movie_to_delete = Movie.query.filter(Movie.id == movie_id and User.id==user_id).first()
         print(movie_to_delete)
         if movie_to_delete:
             db.session.delete(movie_to_delete)
