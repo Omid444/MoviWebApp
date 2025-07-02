@@ -1,4 +1,4 @@
-from flask import Flask, request, render_template, redirect
+from flask import Flask, request, render_template, redirect, url_for
 from models import db, User, Movie
 from data_manager import DataManager
 from omdb_movie_fetcher import fetch_data
@@ -54,7 +54,7 @@ def add_movie(user_id):
     title, director, year, poster = fetch_data(movie_title)
     new_movie = Movie(title=title, director=director, year=year, poster_url=poster, user_id=user_id)
     data_manager.add_movie(new_movie)
-    return redirect('/users/<int:user_id>/movies')
+    return redirect(url_for('add_movie', user_id=user_id))
 
 
 
@@ -63,13 +63,14 @@ def update_movie(user_id, movie_id):
     """Update the details of a specific movie in a user’s list"""
     #user = User.query.filter(User.id == user_id).first()
     new_title = request.form.get('new_title')
-    data_manager.update_movie(movie_id=movie_id, new_title=new_title)
+    data_manager.update_movie(movie_id=movie_id,user_id=user_id, new_title=new_title)
+    return redirect(url_for('display_user_movies', user_id=user_id))
 
 
 @app.route('/users/<int:user_id>/movies/<int:movie_id>/delete', methods=['POST'])
 def delete_movie(user_id, movie_id):
     """Remove a specific movie from a user’s favorite movie list"""
-    data_manager.delete_movie(movie_id)
+    data_manager.delete_movie(user_id=user_id, movie_id=movie_id)
 
 
 if __name__ == '__main__':

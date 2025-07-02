@@ -5,7 +5,7 @@
     {% for user in users %}
     <li class="user-entry">
         <a href="{{ url_for('display_user_movies', user_id=user.id) }}" class="btn">{{ user.name }}</a>
-        <button onclick="location.href='{{ url_for('display_user_movies', user_id=user.id)}}'">View Movies</button>
+        <button onclick="location.href='{{url_for('display_user_movies', user_id=user.id)}}'">View Movies</button>
     </li>
     {% endfor %}
 </ul>
